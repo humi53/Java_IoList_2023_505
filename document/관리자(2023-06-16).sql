@@ -40,4 +40,4 @@ Oracle 의 SYSDBA(SYSTEM) 권한보다 한단계 낮은 DBA 권한을 부여한�
 DBA 권한은 Oracle DBMS System 설정을 변경하는 것 외에
 대부분의 권한을 갖는다
 */
-GRANT DBA iolist;
+GRANT DBA TO iolist;
