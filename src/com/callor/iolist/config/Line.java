@@ -1,6 +1,7 @@
-package com.yopheu.iolist.config;
+package com.callor.iolist.config;
 
 public class Line {
+	
 	public static String dLine() {
 		return dLine(60);
 	}
@@ -13,4 +14,6 @@ public class Line {
 	public static String sLine(int length) {
 		return "-".repeat(length);
 	}
+
+	
 }

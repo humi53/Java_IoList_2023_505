@@ -1,4 +1,4 @@
-package com.yopheu.iolist.config;
+package com.callor.iolist.config;
 
 import javax.sql.DataSource;
 
@@ -17,7 +17,7 @@ public class DBConnection {
 	 * Middle Ware 라고도 한다.
 	 * 
 	 * Java -> JDBC -> DBMS
-	 * Java -< Mybatis -> JDBC -< DBMS
+	 * Java -> Mybatis -> JDBC -> DBMS
 	 * 
 	 * MyBatis 에서 DBMS 에 연결할때 Connection Pool 을 통하여 연결
 	 * Connection Pool 은 미리 DBMS 에 연결할 통로(Session)를 만들어 두고
@@ -31,7 +31,8 @@ public class DBConnection {
 	 * static 으로 선언된 변수, 객체 등을 초기화 하기 위한 코드를
 	 * 작성하는 block
 	 */
-	static {		
+	static {
+		
 		/*
 		 * 1. Data Source 를 설정 : DBMS 에 Connection 하는 도구
 		 * 2. DBMS 에 연결하기 위한 환경 설정
@@ -41,7 +42,7 @@ public class DBConnection {
 		 */
 		
 		// PooledDataSource 는
-		// 10개 정도의 DB 연결 Connection 을 만들어 pool 에 보관
+		// 10 개정도의 DB 연결 Connection 을 만들어 pool 에 보관
 		DataSource dataSource = new PooledDataSource(
 				DBContract.JDBC_DRIVER,
 				DBContract.URL,
@@ -49,28 +50,31 @@ public class DBConnection {
 				DBContract.PASSWORD
 				);
 		
-		// DBMS 의 transaction을 자동으로 수행하는 helper class
-		TransactionFactory transactionFactory = new JdbcTransactionFactory();
+		// DBMS 의 transaction을 자동으로 수행하는 helper Class
+		TransactionFactory transactionFactory 
+			= new JdbcTransactionFactory();
 		
 		// DBMS 연결을 위한 환경 설정 만들기
-		Environment environment = new Environment("dev", transactionFactory, dataSource);
+		Environment environment = new Environment("dev", 
+				transactionFactory, dataSource);
 		
-		// DataSource + TransactionFactory + 환경설정을 묶어서
+		// DataSource + TransactionFactory + 환경설정 을 묶어서
 		// DBMS 연결 초기화 데이터로 만들기
 		Configuration configuration = new Configuration(environment);
 		
-		// Dao 인터페이스(객체)를 Mybatis에게 알리기
+		// Dao 인터페이스(객체)를 Mybatis 에게 알리기
 		// Dao 인터페이스가 저장된 package 를 등록한다
 		// Dao 인터페이스를 개별적으로 등록 할수도 있지만,
 		// 여기에서는 package 를 통째로 등록한다
-		configuration.addMappers("com.yopheu.iolist.persistance");
-		
+		configuration.addMappers("com.callor.iolist.persistance");
+
 		// SessionFactory 생성하기
-		sqlSessionFactory = new SqlSessionFactoryBuilder().build(configuration);
+		sqlSessionFactory = new SqlSessionFactoryBuilder()
+				.build(configuration);
 		
-	} // static black end
-	
+	} // static block end
 	public static SqlSessionFactory getSessionFactory() {
 		return sqlSessionFactory;
 	}
+
 }

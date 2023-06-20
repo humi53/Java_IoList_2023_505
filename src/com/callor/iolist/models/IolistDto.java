@@ -1,6 +1,7 @@
-package com.yopheu.iolist.models;
+package com.callor.iolist.models;
 
 public class IolistDto {
+	
 	public long ioSEQ;//	NUMBER
 	public String ioDate;//	VARCHAR2(10)
 	public String ioTime;//	VARCHAR2(10)
@@ -30,4 +31,5 @@ public class IolistDto {
 		return "IolistDto [ioSEQ=" + ioSEQ + ", ioDate=" + ioDate + ", ioTime=" + ioTime + ", ioBuId=" + ioBuId
 				+ ", ioPCode=" + ioPCode + ", ioQuan=" + ioQuan + ", ioPrice=" + ioPrice + ", ioTotal=" + ioTotal + "]";
 	}
+
 }

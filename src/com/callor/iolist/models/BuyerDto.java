@@ -1,4 +1,4 @@
-package com.yopheu.iolist.models;
+package com.callor.iolist.models;
 
 public class BuyerDto {
 	public String buId;//	VARCHAR2(10)
@@ -20,7 +20,4 @@ public class BuyerDto {
 	public String toString() {
 		return "BuyerDto [buId=" + buId + ", buName=" + buName + ", buTel=" + buTel + ", buAddr=" + buAddr + "]";
 	}
-	
-	
-
 }

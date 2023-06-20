@@ -1,8 +1,8 @@
-package com.yopheu.iolist.service;
+package com.callor.iolist.service;
 
 import java.util.List;
 
-import com.yopheu.iolist.models.BuyerDto;
+import com.callor.iolist.models.BuyerDto;
 
 public interface BuyerService {
 	
@@ -14,11 +14,13 @@ public interface BuyerService {
 	
 	// Dao 통해 SelectAll 한 리스트를 Console 출력하기
 	public void printList();
+	
 	// 매개변수를 통하여 리스트를 전달받고 Console 출력하기
 	public void printList(List<BuyerDto> buyerList);
 	
 	// 한 사람의 고객정보 출력하기
-	public void printBuyer(BuyerDto buyerDto);
+	// Dto 정보를 매개변수를 통하여 전달받고 출력하기
+	public void printBuyer(BuyerDto buyerDto) ;
 	
 	// 고객정보 조회하기
 	// ID 조회하기, 이름으로 조회하기, 전화번호로 조회하기
@@ -40,7 +42,8 @@ public interface BuyerService {
 	// 전화번호로 조회하기
 	public BuyerDto findByBuTel();
 	
-	// 고객ID 자동으로 새로 생성하기
+	// 고객ID를 자동으로 새로 생성하기
 	public String newBuId();
 	
+
 }

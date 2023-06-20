@@ -86,3 +86,4 @@ SELECT COUNT(*) FROM tbl_buyer WHERE buname LIKE '%길%';
 SELECT MAX(buid) FROM tbl_buyer;
 -- 가장 작은 buid
 SELECT MIN(buid) FROM tbl_buyer;
+
